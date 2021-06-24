@@ -8,7 +8,8 @@ function App() {
   const quote = useSelector((state) => state.kanyeQuotes);
   const quoteFavorite = useSelector((state) => state.myFavorite);
   const myquote = useSelector((state) => state.myQuotes);
-  const getQuotes = () => {
+  const getQuotes = (e) => {
+    e.preventDefault();
     axios
       .get('https://api.kanye.rest/')
       .then((req) => {
@@ -18,7 +19,8 @@ function App() {
       .catch((err) => console.log(err));
   };
   console.log(myquote);
-  const addFavorite = () => {
+  const addFavorite = (e) => {
+    e.preventDefault();
     addFavoriteHandler(dispatch, quote);
   };
   return (

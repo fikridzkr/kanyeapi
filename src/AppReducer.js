@@ -1,4 +1,5 @@
-const initialState = { kanyeQuotes: '', myQuotes: [], myFavorite: [] };
+let arrayFav = [];
+const initialState = { kanyeQuotes: '', myQuotes: [], myFavorite: arrayFav };
 
 export const AppReducer = (state = initialState, action) => {
   if (action.type === 'GETQOUTE') {
@@ -7,9 +8,9 @@ export const AppReducer = (state = initialState, action) => {
     };
   }
   if (action.type === 'ADDFAVORITE') {
-    return {
-      myFavorite: action.favorite,
-    };
+    state.myFavorite = arrayFav.slice();
+    arrayFav.push(action.favorite);
+    return state;
   }
   if (action.type === 'MYQOUTES') {
     state.myQuotes.push(action.myquote);
