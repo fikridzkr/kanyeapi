@@ -17,8 +17,9 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
+  console.log(myquote);
   const addFavorite = () => {
-    addFavoriteHandler(dispatch);
+    addFavoriteHandler(dispatch, quote);
   };
   return (
     <div className="App">
@@ -31,10 +32,18 @@ function App() {
 
       <button onClick={getQuotes}>Get quote</button>
       <button onClick={addFavorite}>Add favorite</button>
+
       <h4>{quoteFavorite}</h4>
       <hr />
       <Form />
-      <h4>{myquote}</h4>
+      {myquote ? (
+        myquote.map((item, index) => {
+          return <h4 key={index}>{item}</h4>;
+        })
+      ) : (
+        <p>''</p>
+      )}
+      {/* <h4>{myquote}</h4> */}
     </div>
   );
 }

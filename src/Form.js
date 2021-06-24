@@ -11,7 +11,6 @@ const Form = () => {
 
   const inputHandler = (e) => {
     myquote = e.target.value;
-    console.log(myquote);
   };
   return (
     <div>

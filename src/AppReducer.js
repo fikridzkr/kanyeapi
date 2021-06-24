@@ -1,4 +1,4 @@
-const initialState = { kanyeQuotes: '', myQuotes: '', myFavorite: '' };
+const initialState = { kanyeQuotes: '', myQuotes: [], myFavorite: [] };
 
 export const AppReducer = (state = initialState, action) => {
   if (action.type === 'GETQOUTE') {
@@ -12,9 +12,8 @@ export const AppReducer = (state = initialState, action) => {
     };
   }
   if (action.type === 'MYQOUTES') {
-    return {
-      myQuotes: action.myquote,
-    };
+    state.myQuotes.push(action.myquote);
+    return state;
   }
   return state;
 };
