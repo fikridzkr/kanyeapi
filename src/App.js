@@ -18,7 +18,7 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
-  console.log(myquote);
+  console.log(quoteFavorite);
   const addFavorite = (e) => {
     e.preventDefault();
     addFavoriteHandler(dispatch, quote);

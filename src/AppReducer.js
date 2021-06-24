@@ -10,7 +10,7 @@ export const AppReducer = (state = initialState, action) => {
   if (action.type === 'ADDFAVORITE') {
     state.myFavorite = arrayFav.slice();
     arrayFav.push(action.favorite);
-    return state;
+    return { myFavorite: arrayFav };
   }
   if (action.type === 'MYQOUTES') {
     state.myQuotes.push(action.myquote);
